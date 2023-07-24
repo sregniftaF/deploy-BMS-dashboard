@@ -189,11 +189,11 @@ aside .sidebar a span {
   font-size: 1.6rem;
 }
 
-aside .sidebar a:last-child {
+/* aside .sidebar a:last-child {
   position: absolute;
   bottom: 2rem;
   width: 100%;
-}
+} */
 aside .sidebar a.active {
   background: var(--color-light);
   color: var(--color-primary);
@@ -477,11 +477,24 @@ main .cell-reading table td:last-child:hover{
     width: 94%;
     grid-template-columns: 7rem auto 23rem;
   }
+  .aside {
+    /* Set the initial position off-screen */
+    position: fixed;
+    top: 0;
+    left: -300px; /* Adjust the value to hide the aside off-screen */
+    width: 300px; /* Adjust the width of the aside as needed */
+    height: 100vh;
+    background-color: #f0f0f0;
+    transition: left 0.3s ease; /* Add a transition effect for smooth sliding */
+  }
 
   aside .logo h2{
     display: none;
   }
+  /* aside .sidebar::before{
+    display: none;
 
+  } */
   aside .sidebar h3{
     display:none;
   }
@@ -490,10 +503,10 @@ main .cell-reading table td:last-child:hover{
     width: 5.6rem;
   }
 
-  aside .sidebar a:last-child{
+  /* aside .sidebar a:last-child{
     position: relative;
     margin-top: 1.6rem;
-  }
+  } */
 
   main .insights{
     grid-template-columns: 1fr;
@@ -567,10 +580,10 @@ main .cell-reading table td:last-child:hover{
     height: 3.4rem;
   }
 
-  aside .sidebar a:last-child{
+  /* aside .sidebar a:last-child{
     position: absolute;
     bottom: 5rem;
-  }
+  } */
   aside .close{
     display: inline-block;
     cursor: pointer;
@@ -637,6 +650,4 @@ main .cell-reading table td:last-child:hover{
   .right .top button span{
     font-size: 2rem;
   }
-
-
 }

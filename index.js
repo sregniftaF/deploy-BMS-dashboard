@@ -22,7 +22,6 @@ themeToggler.addEventListener('click', () =>{
 })
 
 
-
 // detailsBtn = document.querySelectorALL('.js-cell-details');
 
 // detailsBtn.forEach((detailBtn)=>{
