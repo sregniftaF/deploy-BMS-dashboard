@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- MATERIAL ICONS -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <!-- SYLESHEET -->
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Responsive Dashboard</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <aside>
+        <!-- TOP OF SIDE BAR -->
+        <div class="top">
+          <div class="logo">
+            <img src="./Images/SIT_logo_2 (1).png" />
+            <h2>SIT<span class="Danger"> BMS</span></h2>
+          </div>
+          <div class="close" id="close-btn">
+            <span class="material-icons-sharp">close</span>
+          </div>
+        </div>
+
+        <!-----------------Side bar ------------------->
+        <div class="sidebar">
+          <a href="#" class="active">
+            <span class="material-icons-sharp">grid_view</span>
+            <h3>Dashboard</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp">thermostat</span>
+            <h3>Temperature</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp">battery_charging_full</span>
+            <h3>Charging Monitoring</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp">report</span>
+            <h3>Reports</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp">settings</span>
+            <h3>Settings</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp">logout</span>
+            <h3>Logout</h3>
+          </a>
+        </div>
+      </aside>
+
+      <!-- End of aside -->
+
+      <main>
+        <h1>DashBoard</h1>
+        <!-- <div class="date">
+          <input type="date" />
+        </div> -->
+
+        <div class="insights">
+          <div class="voltage">
+            <span class="material-icons-sharp">analytics</span>
+            <div class="middle">
+              <!-- <div class="left">
+                <h3>Voltage output</h3>
+                <h1>10V</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+
+                <div class="number">
+                  <p>81%</p>
+                </div>
+              </div> -->
+            </div>
+            <small class="text-muted time-html"></small>
+          </div>
+         
+          <!------------------------------End of Voltage output (pack)--------------------------------- -->
+          <div class="current">
+            <span class="material-icons-sharp">analytics</span>
+            <div class="middle">
+              <!-- <div class="left">
+                <h3>Current output</h3>
+                <h1>0.2A</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+
+                <div class="number">
+                  <p>81%</p>
+                </div>
+              </div> -->
+            </div>
+            <small class="text-muted time-html"></small>
+          </div>
+
+          <!--------------------------------End of Current Output (pack)----------------------------------------------- -->
+          <div class="temperature">
+            <span class="material-icons-sharp">thermostat</span>
+            <div class="middle">
+              <!-- <div class="left">
+                <h3>Temperature output</h3>
+                <h1>25&degC</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+
+                <div class="number">
+                  <p>81%</p>
+                </div>
+              </div> -->
+            </div>
+            <small class="text-muted time-html"></small>
+          </div>
+          <!--------------------------------End of temperature Output (pack)------------------------------------------------->
+          
+        </div>
+        <!-- ----------------------------------END OF INSIGHTS-------------------------------------------------- -->
+      <div class="cell-reading">
+        <h2>Cell readings</h2>
+        <table >
+          <thead>
+            <tr>
+              <th>Cell Name</th>
+              <th>Voltage[V]</th>
+              <th>Temperature[&deg;C]</th>
+              <th>SOC[%]</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- <tr>
+              <td>Cell 1</td>
+              <td>2.5V</td>
+              <td>86</td>
+              <td> <svg> <rect x="120" width="100", height ="30" rx ="10" pathlength="100"></svg></td>
+              <td class="success">Charging</td>
+              <td class="primary">Details</td>
+            </tr>
+            <tr>
+              <td>Cell 1</td>
+              <td>2.2V</td>
+              <td>86</td>
+              <td> <svg> <rect x="120" width="100", height ="30" rx ="10" pathlength="100"></svg></td>
+              <td class="success">Charging</td>
+              <td class="primary">Details</td>
+            </tr>
+            <tr>
+              <td>Cell 2</td>
+              <td>2.1V</td>
+              <td>86</td>
+              <td> <svg> <rect x="120" width="100", height ="30" rx ="10" pathlength="100"></svg></td>
+              <td class="success">Charging</td>
+              <td class="primary">Details</td>
+            </tr>
+            <tr>
+              <td>Cell 3</td>
+              <td>2.6V</td>
+              <td>86</td>
+              <td> <svg> <rect x="120" width="100", height ="30" rx ="10" pathlength="100"></svg></td>
+              <td class="success">Charging</td>
+              <td class="primary">Details</td>
+            </tr>
+            <tr>
+              <td>Cell 4</td>
+              <td>2.2V</td>
+              <td>86</td>
+              <td> <svg> <rect x="120" width="100", height ="30" rx ="10" pathlength="100"></svg></td>
+              <td class="success">Charging</td>
+              <td class="primary">Details</td>
+            </tr>
+            <tr>
+              <td>Cell 5</td>
+              <td>2.1V</td>
+              <td>86</td>
+              <td> <svg> <rect x="120" width="100", height ="30" rx ="10" pathlength="100"></svg></td>
+              <td class="success">Charging</td>
+              <td class="primary">Details</td>
+            </tr>
+            <tr>
+              <td>Cell 6</td>
+              <td>2.3V</td>
+              <td>86</td>
+              <td> <svg> <rect x="120" width="100", height ="30" rx ="10" pathlength="100"></svg></td>
+              <td class="success">Charging</td>
+              <td class="primary">Details</td>
+            </tr>
+            <tr>
+              <td>Cell 7</td>
+              <td>2.4V</td>
+              <td>86</td>
+              <td> <svg> <rect x="120" width="100", height ="30" rx ="10" pathlength="100"></svg></td>
+              <td class="success">Charging</td>
+              <td class="primary">Details</td>
+            </tr>
+
+            <tr>
+              <td>Cell 8</td>
+              <td>2.9V</td>
+              <td>86</td>
+              <td> <svg> <rect x="120" width="100", height ="30" rx ="10" pathlength="100"></svg></td>
+              <td class="success">Charging</td>
+              <td class="primary">Details</td>
+            </tr> -->
+
+          </tbody>
+        </table>
+        <a href="#">Show all</a>
+      </div>
+      </main>
+      <!-- --------------------------------------End of main------------------------------- -->
+    <div class="right">
+      <div class="top">
+
+        <button id="menu-button">
+          <span class="material-icons-sharp">menu</span>
+        </button>
+        
+          <div class="theme-toggler">
+            <span class="material-icons-sharp active">light_mode</span>
+            <span class="material-icons-sharp">dark_mode</span>
+          </div>
+
+          <div class="profile">
+            <div class="info">
+              <p>Hey, <b>Sam</b></p>
+              <small class="text-muted">Admin</small>
+            </div>
+
+            <div class="profile-photo">
+              <img src="./Images/logo.png" alt="">
+            </div>
+
+          </div>
+      </div>
+      <!-- ----------------------End of Top----------------------- -->
+      <div class="notification">
+        <h2>Notification</h2>
+        <div class="updates">
+
+          <!-- <div class="update">
+
+            <div class="profile-photo">
+              <img src="./Images/images.png">
+            </div>
+            <div class="messages">
+              <p> <b>Cell Name:</b> High Temperature!</p>
+              <small class="text-muted"> 2 Minutes Ago</small>
+            </div>
+          </div>
+
+          <div class="update">
+           
+            <div class="profile-photo">
+              <img src="./Images/images.png">
+            </div>
+            <div class="messages">
+              <p> <b>Cell Name:</b> High Temperature!</p>
+              <small class="text-muted"> 2 Minutes Ago</small>
+            </div>
+          </div>
+          
+          <div class="update">
+            <div class="profile-photo">
+              <img src="./Images/images.png">
+            </div>
+            <div class="messages">
+              <p> <b>Cell Name:</b> High Temperature!</p>
+              <small class="text-muted"> 2 Minutes Ago</small>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    </div>
+    <script src="./Data/data.js"></script>
+    <script src="./Data/cellreadings.js"></script>
+    <script type="module" src="./Data/Createhtml.js"></script>
+    <script type="module" src= "./request.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
