@@ -477,7 +477,7 @@ main .cell-reading table td:last-child:hover{
     width: 94%;
     grid-template-columns: 7rem auto 23rem;
   }
-  .aside {
+  .aside{
     /* Set the initial position off-screen */
     position: fixed;
     top: 0;
