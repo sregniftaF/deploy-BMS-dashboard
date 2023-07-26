@@ -11,19 +11,18 @@ import CreateHTML from "./Data/Createhtml.js";
 // }
 const cellObjects = []; // array of objects for cells
 const batObjects = []; // array of objects for battery
-let generateHTML = new CreateHTML();
-const api_url = "https://api.thingspeak.com/channels/2175370/feeds.json?api_key=0Z2TZ9JO3LRH4AYK&results=2";
-let previous_entry = -1;
+
 // class declare
 
 class batteryreadings{
+  static battstatus = '';
 
   constructor(battTimestamp, battV=0, battC=0, battTemp=0){
     this.battTimestamp = battTimestamp;
     this.battV = battV;
     this.battC = battC;
     this.battTemp = battTemp;
-    console.log("battery created")
+    //console.log("battery created")
   }
 
   updateTime(timestamp){
@@ -39,6 +38,9 @@ class batteryreadings{
   updateCurrent(curr){
     this.battC = curr;
   }
+  updateStatus(status){
+    batteryreadings.battstatus = status;
+  }
 
 }
 
@@ -48,7 +50,7 @@ class cellreadings {
     this.cellName = cellName;
     this.cellVolt = cellVolt;
     this.cellTemp = cellTemp;
-    console.log("created new object");
+    //console.log("created new object");
   }
   updateName(name) {
     this.cellName = name;
@@ -63,10 +65,31 @@ class cellreadings {
     this.cellTimestamp = timestamp;
   }
   cellSOC(){
-    return 10;
+    return "WIP";
   }
 }
 
+//testing values for alerts system
+
+// const cell1 = new cellreadings("2023-07-11T12:00:00Z", "Cell1", 3.5, 25);
+// cellObjects.push(cell1);
+
+// const cell2 = new cellreadings("2023-07-11T12:05:00Z", "Cell2", 3.2, 27);
+// cellObjects.push(cell2);
+
+// const cell3 = new cellreadings("2023-07-11T12:10:00Z", "Cell3", 3.7, 70);
+// cellObjects.push(cell3);
+
+// const cell4 = new cellreadings("2023-07-11T12:15:00Z", "Cell4", 3.3, 100);
+// cellObjects.push(cell4);
+
+// const cell5 = new cellreadings("2023-07-11T12:20:00Z", "Cell5", 3.6, 23);
+// cellObjects.push(cell5);
+
+
+let generateHTML = new CreateHTML();
+const api_url = "https://api.thingspeak.com/channels/2175370/feeds.json?api_key=0Z2TZ9JO3LRH4AYK&results=2";
+let previous_entry = -1;
 
 
 // send request and get the data from teamspeak
@@ -78,7 +101,10 @@ async function get_Thinkspeak() {
     //return data;
     console.log("data received");
     processData(data, cellObjects, batObjects);
-    generateHTML.CreateCellhtml(cellObjects);
+
+
+    generateHTML.CreateCellhtml(cellObjects, (batteryreadings.battstatus));
+    generateHTML.CreateAlerthtml(cellObjects);
     generateHTML.CreateBatteryhtml(batObjects);
     document.querySelector('table tbody').innerHTML = generateHTML.trHTML;
     document.querySelector('.updates').innerHTML = generateHTML.notifyHTML;
@@ -93,7 +119,6 @@ async function get_Thinkspeak() {
     console.log("not data returned");
   }
 }
-
 
 // check if data is updated
 function readDATA(data) {
@@ -128,18 +153,27 @@ function emptyArray(arr) {
 function updateBattery(fieldValue, feedsdata, battObj){
   if (fieldValue === "BPT"){
    battObj.updateTemp(feedsdata);
-   console.log("temp updated")
+   //console.log("temp updated")
 
   }else if (fieldValue === "BPV"){
     battObj.updateVolt(feedsdata);
-    console.log("volt updated")
+    //console.log("volt updated")
 
   }else if (fieldValue === "BPC"){
     battObj.updateCurrent(feedsdata);
-    console.log("current updated")
+    //console.log("current updated")
   }
 
   battObj.updateTime(feedsdata["created_at"]);
+
+}
+function readStatus(status){
+  if (status === "1.000.00"){
+    return 'Charging';
+  }
+  else if (status === "0.000.00"){
+        return 'Discharging';
+  }
 
 }
 
@@ -148,7 +182,7 @@ function processData(jsonData, cellObjects, batObjects) {
   //console.log(typeof(cellObjects));
   const channelFields = jsonData.channel;
   const feedsData = jsonData.feeds[1];
-  console.log(feedsData);
+  console.log(feedsData); //status 0 discharging, 1 charging
   //console.log(feedsData);
 
   // looping thru all the channel fields
@@ -188,6 +222,7 @@ function processData(jsonData, cellObjects, batObjects) {
               //console.log("at the end of the object");
               // create new object and push into array becuas
               const cellObject = new cellreadings(feedsData["created_at"],fieldValue.substring(0, 2),feedsData[fieldKey], 0);
+
               cellObjects.push(cellObject);
             }
           }
@@ -198,11 +233,13 @@ function processData(jsonData, cellObjects, batObjects) {
         if(emptyArray(batObjects)){
           const batObject = new batteryreadings(feedsData["created_at"]); // time,volt, current, temp
           updateBattery(fieldValue, feedsData[fieldKey],batObject);
+          batObject.updateStatus(readStatus(feedsData["field8"]));
           batObjects.push(batObject);
 
         }
         else{
             updateBattery(fieldValue, feedsData[fieldKey],batObjects[0])
+            batObjects[0].updateStatus(readStatus(feedsData["field8"]));
             batObjects[0].updateTime(convertToSingaporeTime(feedsData["created_at"]));
           }
 
@@ -225,17 +262,3 @@ setInterval(get_Thinkspeak,15000);
 // })
 
 
-// const cell1 = new cellreadings("2023-07-11T12:00:00Z", "Cell1", 3.5, 25);
-// cellObjects.push(cell1);
-
-// const cell2 = new cellreadings("2023-07-11T12:05:00Z", "Cell2", 3.2, 27);
-// cellObjects.push(cell2);
-
-// const cell3 = new cellreadings("2023-07-11T12:10:00Z", "Cell3", 3.7, 24);
-// cellObjects.push(cell3);
-
-// const cell4 = new cellreadings("2023-07-11T12:15:00Z", "Cell4", 3.3, 26);
-// cellObjects.push(cell4);
-
-// const cell5 = new cellreadings("2023-07-11T12:20:00Z", "Cell5", 3.6, 23);
-// cellObjects.push(cell5);

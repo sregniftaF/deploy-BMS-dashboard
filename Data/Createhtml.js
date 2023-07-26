@@ -1,6 +1,7 @@
 
 export default class CreateHTML{
     constructor(){
+        this.chargestatusHTML = 0;
         this.notifyHTML ='';
         this.trHTML ='';
         this.voltHTML='';
@@ -9,8 +10,7 @@ export default class CreateHTML{
         this.timeHTML='';
     }
     CreateAlerthtml(eachcell){
-      this.notifyHTML ='';
-        if (eachcell.cellTemp > 60){
+        if (eachcell.cellTemp > 30){
           this.notifyHTML += `
               <div class="update">
               <div class="profile-photo">
@@ -26,7 +26,8 @@ export default class CreateHTML{
           }
           
       }
-    CreateCellhtml(cellObjects){
+    CreateCellhtml(cellObjects, status){
+      this.notifyHTML ='';
       this.trHTML='';
         cellObjects.forEach(eachcell=> {
         this.CreateAlerthtml(eachcell);
@@ -36,8 +37,8 @@ export default class CreateHTML{
                     <td>${(eachcell.cellName)}</td>
                     <td>${(eachcell.cellVolt)}V</td>
                     <td>${(eachcell.cellTemp)}&degC</td>
-                    <td>${(eachcell.cellSOC())}%</td>
-                    <td class="success">Charging</td>
+                    <td>${(eachcell.cellSOC())}</td>
+                    <td class=${status === 'Charging' ? "success" : status === 'Discharging' ? "warning" : "primary"}>${status}</td>
                     <td><td>
     
                     </tr>
@@ -65,7 +66,7 @@ export default class CreateHTML{
                 </svg>
 
                 <div class="number">
-                  <p>81%</p>
+                  <p>WIP</p>
                 </div>
               </div>
         `;
@@ -86,7 +87,7 @@ export default class CreateHTML{
         `;
 
         this.timeHTML+=`${battobject.battTimestamp}`;
-        console.log(battobject.battTimestamp)
+        //console.log(battobject.battTimestamp)
 
       })
     }
