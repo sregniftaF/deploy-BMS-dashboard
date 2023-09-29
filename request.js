@@ -99,7 +99,8 @@ async function get_Thinkspeak() {
   if (readDATA(data)) {
     //console.log("data-updated");
     //return data;
-    console.log("data received");
+    //console.log("data received");
+    console.log(data);
     processData(data, cellObjects, batObjects);
 
 
