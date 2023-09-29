@@ -88,7 +88,7 @@ class cellreadings {
 
 
 let generateHTML = new CreateHTML();
-const api_url = "https://api.thingspeak.com/channels/2175370/feeds.json?api_key=0Z2TZ9JO3LRH4AYK&results=2";
+const api_url = "https://api.thingspeak.com/channels/2220941/feeds.json?api_key=LPMHIW6GXK9U7FSE&results=2";
 let previous_entry = -1;
 
 
