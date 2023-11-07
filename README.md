@@ -1,4 +1,4 @@
-# IoT Dashboard for Battery Management System
+**IoT Dashboard for Battery Management System**
 The IoT Dashboard is a crucial component of the Battery Management System(BMS), providing stakeholders with a user-friendly interface to monitor battery performance. It is a responsive dashboard that displays all current battery readings from the BMS such as voltage, current and temperature.
 
 # Features
