@@ -11,7 +11,7 @@ Status | Feature | Description
 --- | --- | ---
 done | Voltage output | Displays voltage output across the battery pack in Volts (V)
 done | Current output | Displays amount of current flowing through the BMS circuit in Ampere (A)
-done | Temperature output | Displays current average temperature reading from all 8 battery cells in Degrees Celcius (°C)
+done | Temperature output | Displays average temperature reading from all 8 battery cells in Degrees Celcius (°C)
 done | Cell readings | Displays current parameters of each cell
 done | Notification | Shows important messages to be noted by the user, e.g. overheating of battery cell
 done | Responsive page design | Allows the same website URL to be used on tablet, desktop or mobile devices with an eye-pleasing and intuitive dashboard interface
