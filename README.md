@@ -1,9 +1,27 @@
-**IoT Dashboard for Battery Management System**
+# IoT Dashboard for Battery Management System
 The IoT Dashboard is a crucial component of the Battery Management System(BMS), providing stakeholders with a user-friendly interface to monitor battery performance. It is a responsive dashboard that displays all current battery readings from the BMS such as voltage, current and temperature.
 
+The Dashboard application follows a client-server architecture:
+- **Client-side**: The user interface, accessible through web browsers or mobile devices, displays the battery data fetched from the Cloud and uses dynamic HTML to generate the script.
+- **Server-side**: The Cloud server hosts the data collected from the BMS and provides a HTTP API endpoint to retrieve the data.
+
+
 # Features
-+ table 3 coloumns
-Status, feature, decription
+Status | Feature | Description
+--- | --- | ---
+done | Voltage output | Displays voltage output across the battery pack in Volts (V)
+--- | --- | ---
+done | Current output | Displays amount of current flowing through the BMS circuit in Ampere (A)
+--- | --- | ---
+done | Temperature output | Displays current average temperature reading from all 8 battery cells
+--- | --- | ---
+done | Cell readings | Displays current information about each cell
+--- | --- | ---
+done | Notification | Shows important messages to be noted by the user, e.g. overheating of battery cell
+--- | --- | ---
+done | Responsive page design | Allows the same website URL to be used on tablet, desktop or mobile devices with an eye-pleasing and intuitive dashboard interface
+--- | --- | ---
+done | Light/Dark mode | Customise dashboard appearance between day/night modes to reduce strain on user's eyes depending on the surrounding environment
 
 # Run
 Link to IoT Dashboard: https://sregniftaf.github.io/deploy-BMS-dashboard/
@@ -30,4 +48,4 @@ Link to IoT Dashboard: https://sregniftaf.github.io/deploy-BMS-dashboard/
 # Contributors
 @zhishin 
 @lijing
-@DanielLeong
+@danielleong
