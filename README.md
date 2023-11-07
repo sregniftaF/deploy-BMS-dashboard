@@ -8,6 +8,7 @@ The Dashboard application follows a client-server architecture:
 
 # Features
 Status | Feature | Description
+--- | --- | ---
 done | Voltage output | Displays voltage output across the battery pack in Volts (V)
 done | Current output | Displays amount of current flowing through the BMS circuit in Ampere (A)
 done | Temperature output | Displays current average temperature reading from all 8 battery cells
