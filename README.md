@@ -3,7 +3,7 @@ The IoT Dashboard is a crucial component of the Battery Management System (BMS),
 
 The Dashboard application follows a client-server architecture:
 - **Client-side**: The user interface, accessible through web browsers or mobile devices, displays the battery data fetched from the Cloud and uses dynamic HTML to generate the script.
-- **Server-side**: The Cloud server hosts the data collected from the BMS and provides a HTTP API endpoint to retrieve the data.
+- **Server-side**: The Cloud server hosts the data collected from the BMS and provides a REST API endpoint to retrieve the data.
 
 
 # Features
