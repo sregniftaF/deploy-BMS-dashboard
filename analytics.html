@@ -1,49 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- MATERIAL ICONS -->
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
-      rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+        rel="stylesheet"
     />
     <!-- SYLESHEET -->
     <link rel="stylesheet" href="./styles.css" />
-    <title>Responsive Dashboard</title>
-  </head>
-    
-</body>
-    <div class="container">
-        <aside id="aside-menu">
+    <title>Analytics</title>
+</head>
+
+<body>
+<div class="container">
+    <aside id="aside-menu">
         <!-- TOP OF SIDE BAR -->
         <div class="top">
             <div class="logo">
-            <img src="./Images/SIT_logo_2 (1).png" />
-            <h2>SIT<span class="Danger"> BMS</span></h2>
+                <img src="./Images/SIT_logo_2 (1).png" />
+                <h2>SIT<span class="Danger"> BMS</span></h2>
             </div>
             <div class="close" id="close-btn">
-            <span class="material-icons-sharp">close</span>
+                <span class="material-icons-sharp">close</span>
             </div>
         </div>
 
         <!-----------------Side bar ------------------->
         <div class="sidebar">
             <a href="index.html">
-            <span class="material-icons-sharp">grid_view</span>
-            <h3>Dashboard</h3>
+                <span class="material-icons-sharp">grid_view</span>
+                <h3>Dashboard</h3>
             </a>
 
-            <a href="analytics.html" class ="active">
-            <span class="material-icons-sharp">battery_charging_full</span>
-            <h3>Analytics</h3>
+            <a href="analytics.html" class="active">
+                <span class="material-icons-sharp">battery_charging_full</span>
+                <h3>Analytics</h3>
             </a>
- 
         </div>
-        </aside>
+    </aside>
 
-        <!-- End of aside -->
+    <!-- End of aside -->
+
     <main>
-  
+        <h1>Analytics</h1>
+
+        <div class="chart-container">
+            <h2>Voltage Graph</h2>
+            <canvas id="voltageChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2>Current Graph</h2>
+            <canvas id="currentChart"></canvas>
+        </div>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var voltageChart, currentChart;
+
+    // Initialize the charts
+    function initializeCharts() {
+        // Voltage data
+        var voltageData = {
+            labels: [], // Time labels (empty for now)
+            datasets: [
+                {
+                    label: 'Voltage',
+                    data: [], // Voltage data (empty for now)
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                },
+            ],
+        };
+
+        var voltageCtx = document.getElementById('voltageChart').getContext('2d');
+        voltageChart = new Chart(voltageCtx, {
+            type: 'line',
+            data: voltageData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'minute', // Adjust the time unit as needed
+                        },
+                    },
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
+
+        // Current data
+        var currentData = {
+            labels: [], // Time labels (empty for now)
+            datasets: [
+                {
+                    label: 'Current',
+                    data: [], // Current data (empty for now)
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                },
+            ],
+        };
+
+        var currentCtx = document.getElementById('currentChart').getContext('2d');
+        currentChart = new Chart(currentCtx, {
+            type: 'line',
+            data: currentData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'minute', // Adjust the time unit as needed
+                        },
+                    },
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
+    }
+
+    // Update the charts with new data
+    function updateCharts() {
+        // Fetch new data and update the chart datasets
+        // Example: Add new data to voltageChart.data.datasets[0].data and update the labels.
+        // Similarly, do the same for currentChart.
+
+        // After updating the data, call the following to re-render the charts:
+        voltageChart.update();
+        currentChart.update();
+    }
+
+    // Call the initializeCharts function to set up the charts
+    initializeCharts();
+
+    // Call the updateCharts function periodically to update the charts with new data
+    // Example: setInterval(updateCharts, 5000); // Update every 5 seconds
+</script>
+</body>
 </html>

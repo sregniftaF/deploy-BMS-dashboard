@@ -59,16 +59,8 @@ export default class CreateHTML{
         <div class="left">
                 <h3>Voltage output</h3>
                 <h1>${battobject.battV}V</h1>
-              </div>
-              <div class="progress">
-                <svg>
-                  <circle cx="38" cy="38" r="36"></circle>
-                </svg>
+        </div>
 
-                <div class="number">
-                  <p>WIP</p>
-                </div>
-              </div>
         `;
 
         this.currHTML+= `
