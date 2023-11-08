@@ -20,7 +20,7 @@ Status | Feature | Description
 # Run
 Link to IoT Dashboard: https://sregniftaf.github.io/deploy-BMS-dashboard/
 ![BMSsregniftaf](https://github.com/sregniftaF/deploy-BMS-dashboard/assets/106218752/4868753b-f3ac-4bcc-9d2d-9c151a7a47f0)
-
+<img src="[https://github.com/favicon.ico](https://github.com/sregniftaF/deploy-BMS-dashboard/assets/106218752/4868753b-f3ac-4bcc-9d2d-9c151a7a47f0)" width="48">
 # Screenshots
 ![image](https://github.com/sregniftaF/deploy-BMS-dashboard/assets/133233810/f94833b4-e238-4ebd-91a3-e65c1cbd7900)
 
