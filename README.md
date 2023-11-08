@@ -9,16 +9,17 @@ The Dashboard application follows a client-server architecture:
 # Features
 Status | Feature | Description
 --- | --- | ---
-done | Voltage output | Displays voltage output across the battery pack in Volts (V)
-done | Current output | Displays amount of current flowing through the BMS circuit in Ampere (A)
-done | Temperature output | Displays average temperature reading from all 8 battery cells in Degrees Celcius (°C)
-done | Cell readings | Displays current parameters of each cell
-done | Notification | Shows important messages to be noted by the user, e.g. overheating of battery cell
-done | Responsive page design | Allows the same website URL to be used on tablet, desktop or mobile devices with an eye-pleasing and intuitive dashboard interface
-done | Light/Dark mode | Customise dashboard appearance between day/night modes to reduce strain on user's eyes depending on the surrounding environment
+:+1::thumbsup:| Voltage output | Displays voltage output across the battery pack in Volts (V)
+:+1::thumbsup:| Current output | Displays amount of current flowing through the BMS circuit in Ampere (A)
+:+1::thumbsup:| Temperature output | Displays average temperature reading from all 8 battery cells in Degrees Celcius (°C)
+:+1::thumbsup:| Cell readings | Displays current parameters of each cell
+:+1::thumbsup:| Notification | Shows important messages to be noted by the user, e.g. overheating of battery cell
+:+1::thumbsup:| Responsive page design | Allows the same website URL to be used on tablet, desktop or mobile devices with an eye-pleasing and intuitive dashboard interface
+:+1::thumbsup:| Light/Dark mode | Customise dashboard appearance between day/night modes to reduce strain on user's eyes depending on the surrounding environment
 
 # Run
 Link to IoT Dashboard: https://sregniftaf.github.io/deploy-BMS-dashboard/
+![BMSsregniftaf](https://github.com/sregniftaF/deploy-BMS-dashboard/assets/106218752/4868753b-f3ac-4bcc-9d2d-9c151a7a47f0)
 
 # Screenshots
 ![image](https://github.com/sregniftaF/deploy-BMS-dashboard/assets/133233810/f94833b4-e238-4ebd-91a3-e65c1cbd7900)
